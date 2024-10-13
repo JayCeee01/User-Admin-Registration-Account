@@ -33,6 +33,7 @@ namespace UserNamespace
             {
                 verify = false;
                 Console.WriteLine("Login Failed. Incorrect username or password.");
+                Console.WriteLine();
                 return verify;
             }
         }
@@ -47,19 +48,41 @@ namespace UserNamespace
 
             while (true)
             {
-                Console.WriteLine("Enter your username: ");
+                Console.WriteLine("Login Account...");
+                Console.WriteLine("___________________________");
+                Console.Write("Enter your username: ");
                 string id = Console.ReadLine();
-                string pass = Console.ReadLine();
 
-                if (id.Equals("") && pass.Equals(""))
+                Console.Write("Enter your password: ");
+                string pass = Console.ReadLine();
+                Console.WriteLine();
+
+                if (!id.Equals("") && !pass.Equals(""))
                 {
                     User user = new User(id, pass);
                     bool verifyUser = user.verifyLogin(id, pass);
 
                     if (verifyUser == true) 
                     {
-                        Console.WriteLine("Registering Account... ");
+                        Console.WriteLine("Registering Account... \n");
+                        Console.WriteLine("___________________________");
+                        Console.Write("Register your admin name: ");
+                        string adminName = Console.ReadLine();
+                        Console.Write("Register your password: ");
+                        string newpass = Console.ReadLine();
+                        Console.WriteLine();
 
+                        Administrator admin1 = new Administrator(adminName, id, pass);
+                        admin1.updateAdminName(adminName);
+                        admin1.updatePassword(newpass);
+
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to exit...");
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        continue;
                     }
 
                     break;

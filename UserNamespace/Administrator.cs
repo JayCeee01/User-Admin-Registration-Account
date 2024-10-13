@@ -23,7 +23,7 @@ namespace UserNamespace
 
         public void updateAdminName(string name)
         {
-            Console.WriteLine($"Update succesful. Your new password is: {name}");
+            Console.WriteLine($"Update succesful. Your new admin name is: {name}");
             this.admin_name = name;
         }
     }

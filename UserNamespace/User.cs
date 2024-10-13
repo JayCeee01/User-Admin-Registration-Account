@@ -17,14 +17,14 @@ namespace UserNamespace
             this.user_id = id;
             this.user_password = pass; 
 
-            //verifyLogin(id, pass);
+            
         }
 
         public bool verifyLogin(string id, string pass)
         {
             bool verify;
 
-            if (id.Equals("admin") && pass.Equals("pass")){
+            if (id.Equals("admin") && pass.Equals(user_password)){
                 verify = true;
                 Console.WriteLine("Login Successfully.");
                 return verify;
@@ -40,7 +40,7 @@ namespace UserNamespace
 
         public virtual void updatePassword(string newPassword)
         {
-
+            
         }
 
         static void Main(string[] args)
@@ -75,6 +75,7 @@ namespace UserNamespace
                         Administrator admin1 = new Administrator(adminName, id, pass);
                         admin1.updateAdminName(adminName);
                         admin1.updatePassword(newpass);
+                        Console.WriteLine("Admin login success: " + admin1.verifyLogin("admin", newpass));
 
                         Console.WriteLine();
                         Console.WriteLine("Press any key to exit...");

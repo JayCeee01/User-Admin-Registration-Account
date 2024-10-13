@@ -18,7 +18,8 @@ namespace UserNamespace
         public override void updatePassword(string newPassword)
         {
             Console.WriteLine($"Update succesful. Your new password is: {newPassword}");
-            this.user_password = newPassword;
+            base.user_password = newPassword;
+            
         }
 
         public void updateAdminName(string name)
